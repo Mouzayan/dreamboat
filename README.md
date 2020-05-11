@@ -3,11 +3,11 @@
 **dreamboat** Dreamboat is a gamified dating app with a twist. A mystery dater, with a premium membership, gets to field potential matches by imagining his or her perfect dreamboat via a selection of ideal traits identified through a personality quiz. The "catches" with the closest match to the user’s desired traits get a chance to be considered for a connection. The user is always in control and the catches need to guess their way towards impressing them.
 
 **Core Features / Goals**  
-The user sets their public profile with an inspirational image (the dreamscape) and a mantra or quote. The user then fills out their desired traits by making selections via a dropdown personality quiz. Those selections remain secret. The catches can browse profiles of mystery users and attempt to impress one, but they do not have visibility of the mystery user’s personality profile answers. They can only see a mystery user’s dreamscape and mantra. If their answers match up enough to the mystery user’s they will be made available for the mystery user to consider. Only the mystery user can see actual photos of suitors and the answers to their personality quiz, and only the mystery dater can initiate contact. Every day the mystery user is served up a selection of catches that matched their criteria by answering the questions correctly.
+The user sets their public profile with an inspirational image (the dreamscape) and a mantra or quote. The user then fills out their desired traits by giving thumbs up or down responses to the personality quiz. Those responses remain secret. The catches can browse mystery user dreamboats and attempt to impress one, but they do not have visibility of the mystery users' personality profile answers. They can only see a mystery user’s dreamscape and mantra. If their answers match up enough to the mystery user’s they will be made available for the mystery user to consider. Only the mystery user can see actual photos of suitors and the answers to their personality quiz, and only the mystery userer can initiate contact. Every day the mystery user is served up a selection of catches that match their criteria.
 
 ## MVP
 
-Each user has the ability to create, update or delete their dreamboat as well as contact their catches. The catches can update, edit and delete their profile and reactions, as well as respond to the users.
+Each mystery user has the ability to create, update or delete their dreamboat and persona quiz, as well as contact their catches. Catches can update, edit and delete their profiles, persona quiz responses and reactions, as well as respond to mystery user contact.
 
 #### Client - Front End
 
@@ -27,6 +27,7 @@ Catch Detail View - Desktop
 <br>
 Catch Login Page - Desktop
 ![](https://i.imgur.com/FX50Zv8.png)
+
 
 **Component Heirarchy**
 
@@ -92,7 +93,8 @@ Backend - Ruby on Rails
 Backend Deployment - Heroku
 
 **ERD Model**
-![ERD Model Photo](./ERDModel.png)
+ERD Model
+![](https://i.imgur.com/FX50Zv8.png)
 
 **Data Heirarchy** - expected endpoints from API
 
@@ -110,10 +112,10 @@ Backend Deployment - Heroku
 
 **Dependancies**
 | Library | Description |
-| :--------------: | :------------------------------------: |
-| axios | _To make get requests to API_ |
-| CORS | _CORS enabling middleware_ |
-| framer-motion | _Page transitions_ |
-| react-router-dom | _Link and Route components_ |
-| REACT | _user interface rendering framework_ |
-| Rails | _server-side application framework_ |
+| :--------------: | :--------------: |
+| axios | _To make and get requests to API_ |
+| CORS | _frontend rendering middleware_ |
+| Framer-motion | _Page transitions_ |
+| React Router | _Link and Route components_ |
+| React | _user interface rendering_ |
+| Rails | _server-side framework_ |
