@@ -15,12 +15,16 @@ Frontend - React
 Frontend Deployment - Netlify
 
 **WireFrame Images**  
+<br>
 Landing Page - Desktop
 ![](https://i.imgur.com/AvlsiSv.png)
+<br>
 Mystery User Login Page - Desktop
 ![](https://i.imgur.com/bEpGfKF.png)
+<br>
 Catch Detail View - Desktop
 ![](https://i.imgur.com/5xd0xA9.png)
+<br>
 Catch Login Page - Desktop
 ![](https://i.imgur.com/FX50Zv8.png)
 
