@@ -94,7 +94,7 @@ Backend Deployment - Heroku
 
 **ERD Model**
 ERD Model
-![](https://i.imgur.com/FX50Zv8.png)
+![](https://i.imgur.com/l6mlTqu.png)
 
 **Data Heirarchy** - expected endpoints from API
 
