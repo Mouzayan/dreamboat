@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encounter_description: MyString
+  user: one
+
+two:
+  encounter_description: MyString
+  user: two
