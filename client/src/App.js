@@ -1,21 +1,20 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import "./App.css";
+import React, { Component } from 'react'
+import { withRouter } from 'react-router';
+import './App.css'
 
-import Header from "./components/Header";
-import Main from "./components/Main";
-
+import Header from './components/Header';
+import Main from './components/Main';
 import {
   loginUser,
   registerUser,
   verifyUser,
-  removeToken,
-} from "./services/api-helper";
+  removeToken
+} from './services/api-helper';
 
 class App extends Component {
   state = {
-    currentUser: null,
-  };
+    currentUser: null
+  }
 
   componentDidMount() {
     this.confirmUser();
@@ -23,27 +22,27 @@ class App extends Component {
 
   handleLogin = async (loginData) => {
     const currentUser = await loginUser(loginData);
-    this.setState({ currentUser });
-  };
+    this.setState({ currentUser })
+  }
 
   handleRegister = async (registerData) => {
     const currentUser = await registerUser(registerData);
-    this.setState({ currentUser });
-  };
+    this.setState({ currentUser })
+  }
 
   confirmUser = async () => {
     const currentUser = await verifyUser();
-    this.setState({ currentUser });
-  };
+    this.setState({ currentUser })
+  }
 
   handleLogout = () => {
     localStorage.clear();
     this.setState({
-      currentUser: null,
-    });
+      currentUser: null
+    })
     removeToken();
-    this.props.history.push("/");
-  };
+    this.props.history.push('/');
+  }
 
   render() {
     return (
@@ -57,7 +56,7 @@ class App extends Component {
           handleLogin={this.handleLogin}
         />
       </div>
-    );
+    )
   }
 }
 
