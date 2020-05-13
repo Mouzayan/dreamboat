@@ -33,7 +33,6 @@ export default class Main extends Component {
     this.readAllComments();
   }
 
- 
   readAllEncounters = async () => {
     const encounters = await getAllEncounters();
     this.setState({ encounters });
@@ -51,14 +50,15 @@ export default class Main extends Component {
     }));
   };
 
-
   handleEncounterUpdate = async (userId, encounterId, encounterData) => {
-    const updatedEncounter = await putEncounter(userId, encounterId, encounterData);
+    const updatedEncounter = await putEncounter(
+      userId,
+      encounterId,
+      encounterData
+    );
     this.setState((prevState) => ({
       encounters: prevState.encounters.map((encounter) => {
-        return encounter.id === encounterId
-          ? updatedEncounter
-          : encounter;
+        return encounter.id === encounterId ? updatedEncounter : encounter;
       }),
     }));
   };
@@ -104,8 +104,8 @@ export default class Main extends Component {
             />
           )}
         />
-        
-<Route
+
+        <Route
           exact
           path="/encounters/:id"
           render={(props) => {
@@ -146,7 +146,6 @@ export default class Main extends Component {
             );
           }}
         />
-        
       </main>
     );
   }

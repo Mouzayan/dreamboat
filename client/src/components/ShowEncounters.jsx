@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ShowEncounters(props) {
+ 
   // debugger
   return (
     <div>
@@ -20,7 +21,7 @@ export default function ShowEncounters(props) {
           </button>
           <button
             onClick={() => {
-              props.handleEncounterDelete(encounter.id);
+              props.handleEncounterDelete(props.currentUser.id, encounter.id);
             }}
           >
             Delete
