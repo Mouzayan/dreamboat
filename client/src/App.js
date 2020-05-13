@@ -54,6 +54,7 @@ class App extends Component {
         <Main
           handleRegister={this.handleRegister}
           handleLogin={this.handleLogin}
+          currentUser={this.state.currentUser}
         />
       </div>
     )

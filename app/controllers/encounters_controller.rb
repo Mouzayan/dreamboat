@@ -1,5 +1,5 @@
 class EncountersController < ApplicationController
-  before_action :set_encounter, only: [:show, :update, :destroy]
+  before_action :set_encounter, only: [:show, :update, :destroy, :add_comment]
   before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /encounters
@@ -11,7 +11,7 @@ class EncountersController < ApplicationController
 
   # GET /encounters/1
   def show
-    render json: @encounter
+    render json: @encounter, include: :comments
   end
 
   # POST /encounters
@@ -19,11 +19,14 @@ class EncountersController < ApplicationController
     @encounter = Encounter.new(encounter_params)
 
     if @encounter.save
-      render json: @encounter, status: :created, location: @encounter
+      render json: @encounter, status: :created
     else
       render json: @encounter.errors, status: :unprocessable_entity
     end
   end
+
+
+
 
   # PATCH/PUT /encounters/1
   def update
@@ -37,6 +40,12 @@ class EncountersController < ApplicationController
   # DELETE /encounters/1
   def destroy
     @encounter.destroy
+  end
+
+  def add_comment
+    @comment = Comment.find(params[:comment_id])
+    @encounter.comments << @encounter
+    render json: @encounter, include: :comments
   end
 
   private

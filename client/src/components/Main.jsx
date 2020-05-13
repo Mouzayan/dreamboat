@@ -3,16 +3,13 @@ import { Route } from "react-router-dom";
 
 import Login from "./Login";
 import Register from "./Register";
-// import {
-//   getAllUsers,
-//   getAllEncounters,
-//   getAllComments,
-//   postEncounter,
-//   postComment,
-//   putEncounter,
-//   putUser,
-//   destroyEncounter,
-// } from "../services/api-helper";
+import {
+  getAllEncounters,
+  getAllComments,
+  postEncounter,
+  putEncounter,
+  destroyEncounter,
+} from "../services/api-helper";
 import ShowComments from "./ShowComments";
 import ShowEncounters from "./ShowEncounters";
 import ShowUsers from "./ShowUsers";
@@ -31,71 +28,52 @@ export default class Main extends Component {
     comments: [],
   };
 
-  // componentDidMount() {
-  //   this.readAllUsers();
-  //   this.readAllEncounters();
-  //   this.readAllComments();
-  // }
+  componentDidMount() {
+    this.readAllEncounters();
+    this.readAllComments();
+  }
 
-  // readAllUsers = async () => {
-  //   const users = await getAllUsers();
-  //   this.setState({ users });
-  // };
+ 
+  readAllEncounters = async () => {
+    const encounters = await getAllEncounters();
+    this.setState({ encounters });
+  };
 
-  // readAllEncounters = async () => {
-  //   const encounters = await getAllEncounters();
-  //   this.setState({ encounters });
-  // };
+  readAllComments = async () => {
+    const comments = await getAllComments();
+    this.setState({ comments });
+  };
 
-  // readAllComments = async () => {
-  //   const comments = await getAllComments();
-  //   this.setState({ comments });
-  // };
+  handleEncounterSubmit = async (userId, encounterData) => {
+    const newEncounter = await postEncounter(userId, encounterData);
+    this.setState((prevState) => ({
+      encounters: [...prevState.encounters, newEncounter],
+    }));
+  };
 
-  // handleEncounterSubmit = async (encounterData) => {
-  //   const newEncounter = await postEncounter(encounterData);
-  //   this.setState((prevState) => ({
-  //     encounters: [...prevState.encounters, newEncounter],
-  //   }));
-  // };
 
-  // handleCommentSubmit = async (commentData) => {
-  //   const newComment = await postComment(commentData);
-  //   this.setState((prevState) => ({
-  //     comments: [...prevState.comments, newComment],
-  //   }));
-  // };
+  handleEncounterUpdate = async (userId, encounterId, encounterData) => {
+    const updatedEncounter = await putEncounter(userId, encounterId, encounterData);
+    this.setState((prevState) => ({
+      encounters: prevState.encounters.map((encounter) => {
+        return encounter.id === encounterId
+          ? updatedEncounter
+          : encounter;
+      }),
+    }));
+  };
 
-  // handleUserUpdate = async (userId, userData) => {
-  //   const updatedUser = await putUser(userId, userData);
-  //   this.setState((prevState) => ({
-  //     users: prevState.users.map((user) => {
-  //       return user.userId === userId ? updatedUser : user;
-  //     }),
-  //   }));
-  // };
-
-  // handleEncounterUpdate = async (encounterId, encounterData) => {
-  //   const updatedEncounter = await putEncounter(encounterId, encounterData);
-  //   this.setState((prevState) => ({
-  //     encounters: prevState.encounters.map((encounter) => {
-  //       return encounter.encounterId === encounterId
-  //         ? updatedEncounter
-  //         : encounter;
-  //     }),
-  //   }));
-  // };
-
-  // handleEncounterDelete = async (encounterId) => {
-  //   await destroyEncounter(encounterId);
-  //   this.setState((prevState) => ({
-  //     encounters: prevState.encounters.filter((encounter) => {
-  //       return encounter.encounterId !== encounterId;
-  //     }),
-  //   }));
-  // };
+  handleEncounterDelete = async (userId, encounterId) => {
+    await destroyEncounter(userId, encounterId);
+    this.setState((prevState) => ({
+      encounters: prevState.encounters.filter((encounter) => {
+        return encounter.id !== encounterId;
+      }),
+    }));
+  };
 
   render() {
+    // debugger
     return (
       <main>
         <Route
@@ -111,47 +89,64 @@ export default class Main extends Component {
           )}
         />
         {/* <Route
-          path="/flavors"
-          render={() => <ShowFlavors flavors={this.state.flavors} />}
+          path="/encounters"
+          render={() => <ShowEncounters encounters={this.state.encounters} />}
         /> */}
-        {/* <Route
+        <Route
           exact
-          path="/foods"
+          path="/encounters"
           render={(props) => (
-            <ShowFoods
+            <ShowEncounters
               {...props}
-              handleFoodDelete={this.handleFoodDelete}
-              foods={this.state.foods}
+              handleEncounterDelete={this.handleEncounterDelete}
+              encounters={this.state.encounters}
+              currentUser={this.props.currentUser}
             />
           )}
-        /> */}
-        {/* <Route
-          path="/foods/new"
-          render={(props) => (
-            <CreateFood {...props} handleFoodSubmit={this.handleFoodSubmit} />
-          )}
-        /> */}
-        {/* <Route
-          path="/foods/:id/edit"
+        />
+        
+<Route
+          exact
+          path="/encounters/:id"
           render={(props) => {
             const { id } = props.match.params;
             return (
-              <UpdateFood
-                {...props}
-                handleFoodUpdate={this.handleFoodUpdate}
-                foodId={id}
+              <EncounterItem
+                encounterId={id}
+                comments={this.state.comments}
+                currentUser={this.props.currentUser}
               />
             );
           }}
-        /> */}
-        {/* <Route
+        />
+
+        <Route
           exact
-          path="/foods/:id"
+          path="/user/encounters/new"
+          render={(props) => (
+            <CreateEncounter
+              {...props}
+              handleEncounterSubmit={this.handleEncounterSubmit}
+              currentUser={this.props.currentUser}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/encounters/:id/edit"
           render={(props) => {
             const { id } = props.match.params;
-            return <FoodItem foodId={id} flavors={this.state.flavors} />;
+            return (
+              <UpdateEncounter
+                {...props}
+                handleEncounterUpdate={this.handleEncounterUpdate}
+                encounterId={id}
+                currentUser={this.props.currentUser}
+              />
+            );
           }}
-        /> */}
+        />
+        
       </main>
     );
   }
