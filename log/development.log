@@ -28532,3 +28532,566 @@ Processing by EncountersController#show as HTML
 Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 2332)
 
 
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 11:16:39 -0400
+Started GET "/users" for ::1 at 2020-05-14 11:16:39 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 11:16:39 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 11:16:39 -0400
+Processing by UsersController#index as HTML
+Processing by EncountersController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  Parameters: {"user_id"=>"undefined"}
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+  [1m[36mEncounter Load (29.9ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 32ms (Views: 1.9ms | ActiveRecord: 29.9ms | Allocations: 16479)
+
+
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 2.2ms | Allocations: 18039)
+
+
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 46ms (Views: 0.4ms | ActiveRecord: 7.8ms | Allocations: 20530)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-14 13:26:57 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "pp"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 233ms (Views: 1.1ms | ActiveRecord: 1.5ms | Allocations: 1301)
+
+
+Started GET "/users/1/encounters/1" for ::1 at 2020-05-14 13:31:48 -0400
+Processing by EncountersController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mEncounter Load (2.3ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters" WHERE "encounters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/encounters_controller.rb:54:in `set_encounter'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."encounter_id" = $1[0m  [["encounter_id", 1]]
+  ↳ app/controllers/encounters_controller.rb:14:in `show'
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 3.0ms | Allocations: 2339)
+
+
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:35:16 -0400
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:35:16 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:35:16 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 13:35:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by AuthenticationController#verify as HTML
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Processing by EncountersController#index as HTML
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 4.1ms | Allocations: 4208)
+
+
+  ↳ app/controllers/users_controller.rb:9:in `index'
+  [1m[36mEncounter Load (2.0ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 1.9ms | Allocations: 4019)
+
+
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 2.0ms | Allocations: 4282)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-14 13:36:23 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "pp"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 254ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1043)
+
+
+Started GET "/users/1/encounters/1" for ::1 at 2020-05-14 13:48:34 -0400
+Processing by EncountersController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mEncounter Load (0.5ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters" WHERE "encounters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/encounters_controller.rb:54:in `set_encounter'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."encounter_id" = $1[0m  [["encounter_id", 1]]
+  ↳ app/controllers/encounters_controller.rb:14:in `show'
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 1.4ms | Allocations: 2424)
+
+
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:49:57 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:49:57 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:49:57 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 13:49:57 -0400
+Processing by EncountersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mEncounter Load (0.5ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1503)
+
+
+Processing by AuthenticationController#verify as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 6.4ms | Allocations: 16326)
+
+
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 2.3ms | Allocations: 2989)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-14 13:50:35 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "pp"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 263ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1131)
+
+
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:52:29 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:52:29 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:52:29 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 13:52:29 -0400
+Processing by UsersController#index as HTML
+Processing by AuthenticationController#verify as HTML
+Processing by EncountersController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Parameters: {"user_id"=>"undefined"}
+  ↳ app/controllers/users_controller.rb:9:in `index'
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 3.0ms | Allocations: 17949)
+
+
+  [1m[36mEncounter Load (1.8ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 1.8ms | Allocations: 3220)
+
+
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 17776)
+
+
+Started GET "/users" for ::1 at 2020-05-14 13:52:32 -0400
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:52:32 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:52:32 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 13:52:32 -0400
+Processing by EncountersController#index as HTML
+Processing by UsersController#index as HTML
+Processing by AuthenticationController#verify as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (20.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (21.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mEncounter Load (1.7ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+  ↳ app/controllers/users_controller.rb:9:in `index'
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 43ms (Views: 0.4ms | ActiveRecord: 20.7ms | Allocations: 16855)
+
+
+Completed 200 OK in 47ms (Views: 25.4ms | ActiveRecord: 21.1ms | Allocations: 17913)
+
+
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 1.7ms | Allocations: 4328)
+
+
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:52:34 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:52:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by EncountersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+Started GET "/users" for ::1 at 2020-05-14 13:52:34 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 13:52:34 -0400
+  [1m[36mEncounter Load (3.2ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 3.2ms | Allocations: 4279)
+
+
+Processing by AuthenticationController#verify as HTML
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `index'
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 1.5ms | Allocations: 3713)
+
+
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 4388)
+
+
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:53:21 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:53:21 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:53:21 -0400
+Started GET "/auth/verify" for ::1 at 2020-05-14 13:53:21 -0400
+Processing by EncountersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[36mEncounter Load (0.8ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Processing by AuthenticationController#verify as HTML
+Processing by UsersController#index as HTML
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.8ms | Allocations: 17026)
+
+
+  [1m[36mUser Load (54.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 58ms (Views: 2.8ms | ActiveRecord: 54.3ms | Allocations: 21564)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 64ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 22746)
+
+
+Started POST "/auth/login" for ::1 at 2020-05-14 13:55:03 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"username"=>"pp", "email"=>"pp@mail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "pp"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 401 Unauthorized in 261ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 845)
+
+
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:55:21 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:55:21 -0400
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:55:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by UsersController#index as HTML
+Processing by EncountersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 1.9ms | Allocations: 3208)
+
+
+  [1m[36mEncounter Load (3.9ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 3.9ms | Allocations: 3904)
+
+
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:55:25 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:55:25 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:55:25 -0400
+Processing by EncountersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mEncounter Load (1.7ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Processing by UsersController#index as HTML
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 1.7ms | Allocations: 16605)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.0ms | Allocations: 2256)
+
+
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:55:28 -0400
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:55:28 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:55:28 -0400
+Processing by EncountersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by UsersController#index as HTML
+  [1m[36mEncounter Load (26.9ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 31ms (Views: 3.9ms | ActiveRecord: 26.9ms | Allocations: 17178)
+
+
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 4.7ms | ActiveRecord: 4.1ms | Allocations: 3938)
+
+
+Started GET "/users/undefined/encountersundefined/comments" for ::1 at 2020-05-14 13:56:22 -0400
+Started GET "/users/undefined/encounters" for ::1 at 2020-05-14 13:56:22 -0400
+Started GET "/users" for ::1 at 2020-05-14 13:56:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/undefined/encountersundefined/comments"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by EncountersController#index as HTML
+Processing by UsersController#index as HTML
+  Parameters: {"user_id"=>"undefined"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 1.9ms | Allocations: 2222)
+
+
+  [1m[36mEncounter Load (4.0ms)[0m  [1m[34mSELECT "encounters".* FROM "encounters"[0m
+  ↳ app/controllers/encounters_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 4.0ms | Allocations: 3843)
+
+
