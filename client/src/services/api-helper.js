@@ -103,11 +103,12 @@ export const destroyEncounter = async (userId, encounterId) => {
 // ====== encounters and comments =========
 // ========================================
 
-export const addComment = async (userId, commentId, encounterId) => {
-  const resp = await api.get(
-    `/users/${userId}/encounters/${encounterId}/comments/${commentId}`
-  );
-  return resp.data;
+export const postComment = async (userId, encounterId, commentData) => {
+  const resp = await api.post(
+    `/users/${userId}/encounters/${encounterId}/comments`,
+    commentData
+  )
+  return resp.data
 };
 
 export const getAllComments = async (userId, encounterId, commentData) => {

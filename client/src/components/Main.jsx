@@ -4,22 +4,23 @@ import { Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import {
+  getAllUsers,
   getAllEncounters,
+  getOneEncounter,
   getAllComments,
   postEncounter,
   putEncounter,
   destroyEncounter,
+  postComment,
 } from "../services/api-helper";
-import ShowComments from "./ShowComments";
 import ShowEncounters from "./ShowEncounters";
 import ShowUsers from "./ShowUsers";
 import CreateEncounter from "./CreateEncounter";
-import CreateComment from "./CreateComment";
 import UpdateEncounter from "./UpdateEncounter";
 import UpdateUser from "./UpdateUser";
 import UserItem from "./UserItem";
 import EncounterItem from "./EncounterItem";
-import CommentItem from "./CommentItem";
+import Home from "./Home";
 
 export default class Main extends Component {
   state = {
@@ -31,11 +32,17 @@ export default class Main extends Component {
   componentDidMount() {
     this.readAllEncounters();
     this.readAllComments();
+    this.readAllUsers();
   }
 
   readAllEncounters = async () => {
     const encounters = await getAllEncounters();
     this.setState({ encounters });
+  };
+
+  readAllUsers = async () => {
+    const users = await getAllUsers();
+    this.setState({ users });
   };
 
   readAllComments = async () => {
@@ -72,10 +79,27 @@ export default class Main extends Component {
     }));
   };
 
+  handleCommentSubmit = async (userId, encounterData) => {
+    const newComment = await postComment(userId, encounterData);
+    this.setState((prevState) => ({
+      comments: [...prevState.comments, newComment],
+    }));
+  };
+
   render() {
     // debugger
     return (
       <main>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <Home {...props} currentUser={this.props.currentUser}
+              handleLogout={this.props.handleLogout}
+              users={this.state.users}
+              />
+          )}
+        />
         <Route
           path="/login"
           render={(props) => (
@@ -83,9 +107,10 @@ export default class Main extends Component {
           )}
         />
         <Route
-          path="/register"
+          path="/sign-up"
           render={(props) => (
-            <Register {...props} handleRegister={this.props.handleRegister} />
+            <Register {...props} handleRegister={this.props.handleRegister}
+            currentUser={this.props.currentUser}/>
           )}
         />
         {/* <Route
@@ -94,7 +119,7 @@ export default class Main extends Component {
         /> */}
         <Route
           exact
-          path="/encounters"
+          path="/users/:id/encounters"
           render={(props) => (
             <ShowEncounters
               {...props}
@@ -105,14 +130,26 @@ export default class Main extends Component {
           )}
         />
 
+        {/* <Route
+          exact
+          path="/users"
+          render={(props) => (
+            <ShowUsers
+              {...props}
+              users={this.state.user}
+              currentUser={this.props.currentUser}
+            />
+          )}
+        /> */}
+
         <Route
           exact
-          path="/encounters/:id"
+          path="/users/:userId/encounters/:encounterId"
           render={(props) => {
-            const { id } = props.match.params;
             return (
               <EncounterItem
-                encounterId={id}
+                encounterId={props.match.params.encounterId}
+                userId={props.match.params.userId}
                 comments={this.state.comments}
                 currentUser={this.props.currentUser}
               />
@@ -131,6 +168,7 @@ export default class Main extends Component {
             />
           )}
         />
+
         <Route
           exact
           path="/encounters/:id/edit"

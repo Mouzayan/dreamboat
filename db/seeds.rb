@@ -24,9 +24,9 @@ Encounter.create(encounter_description: 'Our block party is serving mixers this 
 
 p "#{User.count} users created"
 
-Comment.create(encounter_comment: 'sounds good. I will come with my sorrority.', encounter_id: 1)
-Comment.create(encounter_comment: 'I would be up for that, maybe a little bit later.', encounter_id: 2)
-Comment.create(encounter_comment: 'there will be a storm this weekend. Not the best time for a block party.', encounter_id: 3)
-Comment.create(encounter_comment: 'I checked the schedule for Bluenote. There is no jazz concert on Thursday.', encounter_id: 4)
-Comment.create(encounter_comment: 'I would be interested. Who is playing?', encounter_id: 5)
-Comment.create(encounter_comment: 'Sounds interesting. Share more about yourself?', encounter_id: 6)
+Comment.create(encounter_comment: 'sounds good. I will come with my sorrority.', encounter_id: 1, user_id:1)
+Comment.create(encounter_comment: 'I would be up for that, maybe a little bit later.', encounter_id: 2, user_id:1)
+Comment.create(encounter_comment: 'there will be a storm this weekend. Not the best time for a block party.', encounter_id: 3, user_id:3)
+Comment.create(encounter_comment: 'I checked the schedule for Bluenote. There is no jazz concert on Thursday.', encounter_id: 4, user_id:2)
+Comment.create(encounter_comment: 'I would be interested. Who is playing?', encounter_id: 5, user_id:3)
+Comment.create(encounter_comment: 'Sounds interesting. Share more about yourself?', encounter_id: 6, user_id:2)

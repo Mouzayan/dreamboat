@@ -11,7 +11,7 @@ class EncountersController < ApplicationController
 
   # GET /encounters/1
   def show
-    render json: @encounter, include: :comments
+    render json: @encounter, include: :comments, status: :ok
   end
 
   # POST /encounters

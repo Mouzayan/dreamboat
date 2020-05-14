@@ -51,7 +51,6 @@ export default class Login extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <Link to='/register'>register</Link>
         <button>Submit</button>
       </form>
     )

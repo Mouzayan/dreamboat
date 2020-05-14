@@ -9,7 +9,7 @@ export default function ShowEncounters(props) {
       <h3>Encounters</h3>
       {props.encounters.map((encounter) => (
         <React.Fragment key={encounter.id}>
-          <Link to={`/encounters/${encounter.id}`}>
+          <Link to={`/users/${encounter.user_id}/encounters/${encounter.id}`}>
             {encounter.encounter_description}
           </Link>
           <button

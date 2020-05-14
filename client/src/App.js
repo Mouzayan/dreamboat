@@ -47,14 +47,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          handleLogout={this.handleLogout}
-          currentUser={this.state.currentUser}
-        />
+       
         <Main
           handleRegister={this.handleRegister}
+          handleLogout={this.handleLogout}
           handleLogin={this.handleLogin}
           currentUser={this.state.currentUser}
+          
         />
       </div>
     )
