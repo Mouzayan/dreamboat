@@ -1,35 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Header from './Header';
-import ShowUsers from './ShowUsers';
+import { Link, useHistory } from 'react-router-dom';
 
 
 export default function Home(props) {
+  const history= useHistory()
   return (
-    <React.Fragment> 
-      <Header currentUser={props.currentUser}
-        handleLogout={props.handleLogout}
-      
-      />
 
-{props.currentUser? (
-        <>
-          
-          <ShowUsers
-            {...props} users={props.users}
-              currentUser={props.currentUser}/>
-        </>
-      ) : (
+    <React.Fragment> 
+
+      {props.currentUser ? 
+history.push("/users/:id")
+   : (
           <>
         <p>find your ultimate catch</p>
           
             <Link to="/sign-up">SIGN UP</Link>
-        </>    
+        </> 
       )}
-    
-      
-         
     </React.Fragment>  
   );
 }

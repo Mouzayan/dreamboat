@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 export default function Header(props) {
   return (
     <header>
-      <h1>dreamboat</h1>
+      <Link to="/">
+      <h1>dreamboat</h1> </Link>
       {props.currentUser? (
         <>
           <p>{props.currentUser.username}</p>

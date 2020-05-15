@@ -31,7 +31,7 @@ export default class UpdateEncounter extends Component {
         onSubmit={(e) => {
           e.preventDefault();
           this.props.handleEncounterUpdate(this.props.currentUser.id, this.props.encounterId, this.state);
-          this.props.history.push("/encounters");
+          this.props.history.push("/users/:id/encounters");
         }}
 
         // this.props.handleEncounterSubmit(this.props.currentUser.id, this.state);

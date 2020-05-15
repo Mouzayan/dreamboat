@@ -14,13 +14,11 @@ import {
   postComment,
 } from "../services/api-helper";
 import ShowEncounters from "./ShowEncounters";
-import ShowUsers from "./ShowUsers";
 import CreateEncounter from "./CreateEncounter";
 import UpdateEncounter from "./UpdateEncounter";
-import UpdateUser from "./UpdateUser";
-import UserItem from "./UserItem";
 import EncounterItem from "./EncounterItem";
 import Home from "./Home";
+import UserLanding from "./UserLanding";
 
 export default class Main extends Component {
   state = {
@@ -113,10 +111,18 @@ export default class Main extends Component {
             currentUser={this.props.currentUser}/>
           )}
         />
-        {/* <Route
-          path="/encounters"
-          render={() => <ShowEncounters encounters={this.state.encounters} />}
-        /> */}
+
+        <Route
+          exact
+          path="/users/:id"
+          render={(props) => (
+            <UserLanding {...props} currentUser={this.props.currentUser}
+              handleLogout={this.props.handleLogout}
+              users={this.state.users}
+              />
+          )}
+        />
+        
         <Route
           exact
           path="/users/:id/encounters"
@@ -129,18 +135,6 @@ export default class Main extends Component {
             />
           )}
         />
-
-        {/* <Route
-          exact
-          path="/users"
-          render={(props) => (
-            <ShowUsers
-              {...props}
-              users={this.state.user}
-              currentUser={this.props.currentUser}
-            />
-          )}
-        /> */}
 
         <Route
           exact

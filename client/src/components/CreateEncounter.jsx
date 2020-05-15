@@ -19,7 +19,8 @@ export default class CreateEncounter extends Component {
         onSubmit={(e) => {
           e.preventDefault();
           this.props.handleEncounterSubmit(this.props.currentUser.id, this.state);
-          this.props.history.push("/encounters");
+          // this.props.history.push("/encounters");
+          this.props.history.push("/users/:id/encounters");
         }}
       >
         <h3>Create Encounter</h3>
