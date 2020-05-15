@@ -1,0 +1,35 @@
+.centered {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.splashText {
+display: flex;
+flex-direction: column;
+/* align-content: center; */
+align-items: center;
+justify-content: left;
+max-width: 35vw;
+
+}
+
+.positioning {
+  font-size: 3.5em;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.signUp {
+  border-radius: 15px;
+  border: 1px solid #FFE338;
+  font-size: 2em;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFE338;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
+import './Home.css'
 
 export default function Home(props) {
   const history= useHistory()
@@ -9,13 +10,17 @@ export default function Home(props) {
     <React.Fragment> 
 
       {props.currentUser ? 
-history.push("/users/:id")
-   : (
-          <>
-        <p>find your ultimate catch</p>
-          
-            <Link to="/sign-up">SIGN UP</Link>
-        </> 
+    history.push("/users/:id")
+        : (
+          <div className="centered">
+          <div className="splashText">
+              <p className="positioning">find your ultimate</p>
+              <div className="splashText2">
+              <p className="positioning2">catch</p>
+            <Link className="signUp" to="/sign-up">SIGN UP</Link>
+            </div> 
+            </div>
+            </div>
       )}
     </React.Fragment>  
   );
