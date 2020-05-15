@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import Hero from './Hero'
 
 import './Home.css'
 
@@ -12,6 +13,7 @@ export default function Home(props) {
       {props.currentUser ? 
     history.push("/users/:id")
         : (
+          
           <div className="centered">
           <div className="splashText">
               <p className="positioning">find your ultimate</p>
@@ -21,7 +23,9 @@ export default function Home(props) {
             </div> 
             </div>
             </div>
-      )}
+          
+          )}
+      
     </React.Fragment>  
   );
 }

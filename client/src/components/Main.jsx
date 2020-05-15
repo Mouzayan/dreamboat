@@ -19,6 +19,7 @@ import UpdateEncounter from "./UpdateEncounter";
 import EncounterItem from "./EncounterItem";
 import Home from "./Home";
 import UserLanding from "./UserLanding";
+import Hero from "./Hero";
 
 export default class Main extends Component {
   state = {
@@ -63,7 +64,7 @@ export default class Main extends Component {
     );
     this.setState((prevState) => ({
       encounters: prevState.encounters.map((encounter) => {
-        return encounter.id === encounterId ? updatedEncounter : encounter;
+        return encounter.id === parseInt(encounterId) ? updatedEncounter : encounter;
       }),
     }));
   };
@@ -92,23 +93,35 @@ export default class Main extends Component {
           exact
           path="/"
           render={(props) => (
+            <>
+            <Hero>
             <Home {...props} currentUser={this.props.currentUser}
               handleLogout={this.props.handleLogout}
               users={this.state.users}
-              />
+                />
+              </Hero>
+              </>
           )}
         />
         <Route
           path="/login"
           render={(props) => (
-            <Login {...props} handleLogin={this.props.handleLogin} />
+            <>
+            <Hero>
+              <Login {...props} handleLogin={this.props.handleLogin} />
+              </Hero> 
+              </>
           )}
         />
         <Route
           path="/sign-up"
           render={(props) => (
+            <>
+            <Hero>
             <Register {...props} handleRegister={this.props.handleRegister}
-            currentUser={this.props.currentUser}/>
+                  currentUser={this.props.currentUser} />
+              </Hero>
+              </>
           )}
         />
 

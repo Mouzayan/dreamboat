@@ -6,18 +6,29 @@ import './ShowUsers.css'
 export default function ShowUsers(props) {
 
   return (
-    <div>
-      <h3>Users</h3>
+    <div className="usersContainer">
+  
+
+    
+      <p className="usersTitle">view users</p>
+      {props.currentUser && (
+     <p className="userName">Hello {props.currentUser.username},</p>     
+)}
+
       {props.users.map((user) => (
         <React.Fragment key={user.id}>
+
+<div className="imageMantra">
+
           <Link className="mantra" to={`/users/${user.id}/encounters`}>
             
-            {user.mantra}
+            '{user.mantra}'
           </Link>
-          <img className="dreamScene" src={user.dream_scene}/>
+            <img className="dreamScene" src={user.dream_scene} />
+            </div>
         </React.Fragment>
       ))}
-
+  
 
 
     </div>

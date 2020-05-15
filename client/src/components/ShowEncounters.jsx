@@ -12,6 +12,8 @@ export default function ShowEncounters(props) {
           <Link to={`/users/${encounter.user_id}/encounters/${encounter.id}`}>
             {encounter.encounter_description}
           </Link>
+          {props.currentUser.id === encounter.user_id && (
+            <>
           <button
             onClick={() => {
               props.history.push(`/encounters/${encounter.id}/edit`);
@@ -24,8 +26,11 @@ export default function ShowEncounters(props) {
               props.handleEncounterDelete(props.currentUser.id, encounter.id);
             }}
           >
-            Delete
+              Delete
           </button>
+            </>
+            )
+          }
           <br />
         </React.Fragment>
       ))}
