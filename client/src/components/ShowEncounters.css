@@ -1,0 +1,79 @@
+
+/* all encounters content div  */
+.itemsDiv {
+  margin-top: 11.5%;
+  margin-bottom: 2em;
+  margin-left: 3em;
+  margin-right: 3em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* heading */
+.itemsTitle {
+  font-size: 3em;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  align-self: center;
+}
+
+/* individual link style */
+.itemLink {
+  font-size: 1.5em;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: black;
+  margin-right: 1em;
+  align-self: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* this is the div w encounter links and edit / update buttons */
+.lnk-btns {
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+
+/* all buttons style */
+.btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 15px;
+  border: 1px solid #ffe338;
+  background-color: #ffe338;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  max-width: 7em;
+  text-decoration: none;
+  color: black;
+}
+
+/* edit and delete buttons */
+.edit, .delete {
+  margin-right: 1em;
+}
+
+/* create button */
+.create {
+  align-self: center;
+}
+
+/* media query for tablet */
+@media only screen and (max-width: 768px) {
+  
+}
+  /* media query for mobile phones */
+@media only screen and (max-width: 375px) {
+
+}

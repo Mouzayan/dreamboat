@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import './CreateEncounter.css'
+
 export default class CreateEncounter extends Component {
   state = {
     encounter_description: "",
@@ -7,30 +9,38 @@ export default class CreateEncounter extends Component {
   };
 
   handleChange = (e) => {
-    const { value } = e.target;
+    const { value, name } = e.target;
     this.setState({
-      encounter_description: value,
+      [name]: value,
     });
   };
 
   render() {
     return (
+      <div className="inputFormDiv">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           this.props.handleEncounterSubmit(this.props.currentUser.id, this.state);
-          // this.props.history.push("/encounters");
+         
           this.props.history.push("/users/:id/encounters");
         }}
       >
-        <h3>Create Encounter</h3>
-        <input
-          type="text"
+        <p className="inputFormTitle">Create Encounter</p>
+        <input className="inputFields"
+          type="textarea"
+          name="encounter_description"
+          cols={5}
+          rows={5}
           value={this.state.encounter_description}
           onChange={this.handleChange}
-        />
-        <button>Submit</button>
-      </form>
+          />
+        <button className="btn">Submit</button>
+        </form>
+        </div>
     );
   }
 }
+
+
+

@@ -3,23 +3,26 @@
   flex-direction: column;
   margin-left: 3em;
   margin-right: 3em;
+  margin-top: 3.5em;
  
 }
 
 .usersTitle {
   font-family: "Roboto", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 0.6em;
-  margin-top: 2em;
+  margin-top: 6em;
+  align-self: flex-start;
+  display: flex;
+  margin-left: 2.5em;
 }
 
 .imageMantra {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  align-items: center;
-
+  align-items: center;  
 }
 
 .dreamScene {
@@ -31,7 +34,42 @@
   font-family: "Roboto", sans-serif;
   font-size: 1.5em;
   font-weight: 600;
-  margin-bottom: 0.6em;
-  margin-top: 2em;
-  max-width: 15vw;
+  max-width: 60%;
+  display: block;
+  text-align: left;
 }
+
+q {
+  quotes: "“" "”" "‘" "’";
+  display: flex; 
+ flex-direction: column;
+}
+
+q::before {
+  content: open-quote;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 6em;
+  color:#ffe338;
+  text-align: left;
+  
+}
+
+q::after {
+  content: close-quote;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 6em;
+  color:#ffe338;
+  text-align: left;
+  
+}
+
+/* media query for tablet */
+@media only screen and (max-width: 768px) {
+  
+  }
+    /* media query for mobile phones */
+@media only screen and (max-width: 375px) {
+  
+  }

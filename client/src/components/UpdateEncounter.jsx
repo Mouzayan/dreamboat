@@ -27,23 +27,33 @@ export default class UpdateEncounter extends Component {
 
   render() {
     return (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          this.props.handleEncounterUpdate(this.props.currentUser.id, this.props.encounterId, this.state);
-          this.props.history.push("/users/:id/encounters");
-        }}
+      <div className="inputFormDiv">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.props.handleEncounterUpdate(
+              this.props.currentUser.id,
+              this.props.encounterId,
+              this.state
+            );
+            this.props.history.push("/users/:id/encounters");
+          }}
 
-        // this.props.handleEncounterSubmit(this.props.currentUser.id, this.state);
-      >
-        <h3>Update Encounter</h3>
-        <input
-          type="text"
-          value={this.state.encounter_description}
-          onChange={this.handleChange}
-        />
-        <button>Submit</button>
-      </form>
+          // this.props.handleEncounterSubmit(this.props.currentUser.id, this.state);
+        >
+          <p className="inputFormTitle">Update Encounter</p>
+          <input
+            className="inputFields"
+            type="textarea"
+            name="encounter_description"
+            cols={5}
+            rows={5}
+            value={this.state.encounter_description}
+            onChange={this.handleChange}
+          />
+          <button className="btn">Submit</button>
+        </form>
+      </div>
     );
   }
 }
