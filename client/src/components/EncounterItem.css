@@ -1,6 +1,5 @@
 .encntrCmntDiv {
   margin-top: 11.5%;
-  /* margin-bottom: 8em; */
   margin-left: 3em;
   margin-right: 3em;
   display: flex;
@@ -32,9 +31,27 @@ margin-left: 0.5em;
 
 /* media query for tablet */
 @media only screen and (max-width: 768px) {
+  .encntrCmntDiv {
+    margin-top: 20%;
+  } 
   
+  .encounterText {
+    margin-bottom: 0em;
+  }
+  
+  .commentText {
+    font-size: 1.5em;
+    margin-bottom: 0em;
+  }
+  
+
 }
   /* media query for mobile phones */
 @media only screen and (max-width: 375px) {
+  .encntrCmntDiv {
+    margin-top: 35%;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
 
 }

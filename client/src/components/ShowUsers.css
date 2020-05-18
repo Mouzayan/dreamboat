@@ -71,5 +71,26 @@ q::after {
   }
     /* media query for mobile phones */
 @media only screen and (max-width: 375px) {
+  .usersContainer {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  .usersTitle {
+  margin-left: 1.2em;
+  }
+
+  q::before {
+    font-size: 3em; 
+  }
   
+  q::after {
+    font-size: 3em; 
+  }
+
+  .mantra {
+    max-width: 95%;
+    font-size: 1.2em;
+  }
   }

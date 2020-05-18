@@ -62,5 +62,16 @@
 }
   /* media query for mobile phones */
 @media only screen and (max-width: 375px) {
+  .headerDiv {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  /* .headerUserNameDiv {
+    margin-left: 1.5em;
+  } */
 
+  .headerUserNameDiv {
+    margin-left: 1.5em;
+  }
+  
 }

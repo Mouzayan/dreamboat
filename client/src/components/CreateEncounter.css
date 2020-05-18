@@ -1,6 +1,18 @@
 
+.createInputFormDiv {
+  margin-top: 15%;
+  margin-bottom: 2em;
+  margin-left: 3em;
+  margin-right: 3em;
+  /* background-color:yellow; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
 .inputFormDiv {
-  margin-top: 11.5%;
+  margin-top: 15%;
   margin-bottom: 2em;
   margin-left: 3em;
   margin-right: 3em;
@@ -25,9 +37,50 @@ height: 1.5em;
 
 /* media query for tablet */
 @media only screen and (max-width: 768px) {
+  .inputFormDiv {
+    margin-top: 22%;
+    
   
+  }
+  .inputFields {
+    margin-right: 2em;
+    width: 75%;
+    height: 2.1em;
+    border: 0.25px solid #88807B;
+    }
+
+    .createInputFormDiv {
+      margin-top: 25%;
+      
+    }
+
 }
   /* media query for mobile phones */
 @media only screen and (max-width: 375px) {
+  .createInputFormDiv {
+    margin-top: 35%;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+
+  .inputFormDiv {
+    margin-top: 35%;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+
+  .inputFormTitle {
+    font-size: 1.9em;
+  }
+
+  .inputFields {
+    margin-right: 0.8em;
+    width: 75%;
+    height: 1.8em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border: 0.25px solid #88807B;
+    }
+
 
 }

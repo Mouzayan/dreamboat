@@ -17,7 +17,7 @@ export default class CreateEncounter extends Component {
 
   render() {
     return (
-      <div className="inputFormDiv">
+      <div className="createInputFormDiv">
       <form
         onSubmit={(e) => {
           e.preventDefault();

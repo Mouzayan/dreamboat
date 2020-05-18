@@ -7,7 +7,7 @@ export default function ShowUsers(props) {
 
   return (
     <>
-    <p className="usersTitle">browse user scenes and headlines </p>
+    <p className="usersTitle">Browse user scenes and headlines </p>
     <div className="usersContainer">
 
       

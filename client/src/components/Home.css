@@ -54,9 +54,55 @@ overflow: hidden;
 
 /* media query for tablet */
 @media only screen and (max-width: 768px) {
+  .centered {
+    min-width: 100%;
+  }    
+    .positioning {
+      font-size: 2.2em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .positioning2 {
+      font-size: 2.2em;
+      margin-right: 0.25em;
+    }
+
+    .splashText2 {
+      align-items: center;
+      justify-content: center;
+      }
+
+    .signUp {
+      font-size: 1.5em;
+      margin-left: 0.25em;
+    }
   
 }
   /* media query for mobile phones */
 @media only screen and (max-width: 375px) {
+  .centered {
+    min-width: 100%;
+  }    
+    .positioning {
+      font-size: 2.2em;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
+    .positioning2 {
+      font-size: 2.2em;
+      margin-right: 0.25em;
+    }
+
+    .splashText2 {
+      align-items: center;
+      justify-content: center;
+      }
+
+    .signUp {
+      font-size: 1.5em;
+      margin-left: 0.25em;
+    }
+  
 }

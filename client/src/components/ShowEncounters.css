@@ -32,7 +32,6 @@
 
 /* this is the div w encounter links and edit / update buttons */
 .lnk-btns {
-  /* background-color: blueviolet; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -71,9 +70,31 @@
 
 /* media query for tablet */
 @media only screen and (max-width: 768px) {
-  
+  .itemsDiv {
+    margin-top: 20%;
+  }
+
+  .lnk-btns {
+    justify-content: flex-start;
+  }
 }
+
+
   /* media query for mobile phones */
 @media only screen and (max-width: 375px) {
+  .itemsDiv {
+    margin-top: 35%;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
 
-}
+  .itemsTitle {
+    font-size: 2em;
+  }
+
+  .itemLink {
+    font-size: 1.2em;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+  }  
+  }
