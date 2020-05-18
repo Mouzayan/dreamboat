@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { getOneEncounter, postComment } from "../services/api-helper";
 
+import './EncounterItem.css'
+
 export default class EncounterItem extends Component {
   state = {
     encounter: null,
@@ -53,28 +55,32 @@ export default class EncounterItem extends Component {
       <div>
         {encounter && (
           <>
-            <h3>{encounter.encounter_description}</h3>
+            <div className="encntrCmntDiv">
+            <p className="encounterText">{encounter.encounter_description}</p>
             {encounter.comments.map((comment) => (
-              <p key={comment.id}>{comment.encounter_comment}</p>
+              <p className="commentText" key={comment.id}><span className="bullet">.</span>{comment.encounter_comment}</p>
+              
             ))}
+              </div>
           </>
         )}
-
+      <div className="inputFormDiv">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             this.handleSubmit();
           }}
         >
-          <h3>Create Comment</h3>
-          <input
+          <p className="inputFormTitle">Create Comment</p>
+          <input className="inputFields"
             type="text"
             value={this.state.commentData.encounter_comment}
             onChange={this.handleChange}
           />
-          <button>Add Comment</button>
+          <button className="btn">Submit</button>
         </form>
-      </div>
+        </div>
+        </div>
     );
   }
 }

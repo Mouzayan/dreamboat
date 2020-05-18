@@ -1,6 +1,8 @@
 class EncountersController < ApplicationController
-  before_action :set_encounter, only: [:show, :update, :destroy, :add_comment]
+
+
   before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :set_encounter, only: [:update, :destroy, :add_comment]
 
   # GET /encounters
   def index
@@ -11,6 +13,7 @@ class EncountersController < ApplicationController
 
   # GET /encounters/1
   def show
+    @encounter = Encounter.find(params[:id])
     render json: @encounter, include: :comments, status: :ok
   end
 
@@ -51,7 +54,7 @@ class EncountersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_encounter
-      @encounter = Encounter.find(params[:id])
+      @encounter = @current_user.encounters.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

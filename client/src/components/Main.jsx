@@ -14,13 +14,12 @@ import {
   postComment,
 } from "../services/api-helper";
 import ShowEncounters from "./ShowEncounters";
-import ShowUsers from "./ShowUsers";
 import CreateEncounter from "./CreateEncounter";
 import UpdateEncounter from "./UpdateEncounter";
-import UpdateUser from "./UpdateUser";
-import UserItem from "./UserItem";
 import EncounterItem from "./EncounterItem";
 import Home from "./Home";
+import UserLanding from "./UserLanding";
+import Hero from "./Hero";
 
 export default class Main extends Component {
   state = {
@@ -65,7 +64,7 @@ export default class Main extends Component {
     );
     this.setState((prevState) => ({
       encounters: prevState.encounters.map((encounter) => {
-        return encounter.id === encounterId ? updatedEncounter : encounter;
+        return encounter.id === parseInt(encounterId) ? updatedEncounter : encounter;
       }),
     }));
   };
@@ -94,29 +93,49 @@ export default class Main extends Component {
           exact
           path="/"
           render={(props) => (
+            <>
+            <Hero>
             <Home {...props} currentUser={this.props.currentUser}
               handleLogout={this.props.handleLogout}
               users={this.state.users}
-              />
+                />
+              </Hero>
+              </>
           )}
         />
         <Route
           path="/login"
           render={(props) => (
-            <Login {...props} handleLogin={this.props.handleLogin} />
+            <>
+            <Hero>
+              <Login {...props} handleLogin={this.props.handleLogin} />
+              </Hero> 
+              </>
           )}
         />
         <Route
           path="/sign-up"
           render={(props) => (
+            <>
+            <Hero>
             <Register {...props} handleRegister={this.props.handleRegister}
-            currentUser={this.props.currentUser}/>
+                  currentUser={this.props.currentUser} />
+              </Hero>
+              </>
           )}
         />
-        {/* <Route
-          path="/encounters"
-          render={() => <ShowEncounters encounters={this.state.encounters} />}
-        /> */}
+
+        <Route
+          exact
+          path="/users/:id"
+          render={(props) => (
+            <UserLanding {...props} currentUser={this.props.currentUser}
+              handleLogout={this.props.handleLogout}
+              users={this.state.users}
+              />
+          )}
+        />
+        
         <Route
           exact
           path="/users/:id/encounters"
@@ -129,18 +148,6 @@ export default class Main extends Component {
             />
           )}
         />
-
-        {/* <Route
-          exact
-          path="/users"
-          render={(props) => (
-            <ShowUsers
-              {...props}
-              users={this.state.user}
-              currentUser={this.props.currentUser}
-            />
-          )}
-        /> */}
 
         <Route
           exact

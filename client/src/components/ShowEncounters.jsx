@@ -1,37 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import './ShowEncounters.css'
+
 export default function ShowEncounters(props) {
- 
-  // debugger
   return (
-    <div>
-      <h3>Encounters</h3>
+    <div className="itemsDiv">
+      <p className="itemsTitle">Encounters</p>
       {props.encounters.map((encounter) => (
         <React.Fragment key={encounter.id}>
-          <Link to={`/users/${encounter.user_id}/encounters/${encounter.id}`}>
+          <div className="lnk-btns">
+            <div className="itemLink">
+          <Link  to={`/users/${encounter.user_id}/encounters/${encounter.id}`}>
             {encounter.encounter_description}
-          </Link>
-          <button
+              </Link>
+              </div>
+          {props.currentUser.id === encounter.user_id && (
+            <>
+              
+          <button className="btn edit"
             onClick={() => {
               props.history.push(`/encounters/${encounter.id}/edit`);
             }}
           >
             Edit
           </button>
-          <button
+          <button className="btn delete"
             onClick={() => {
               props.handleEncounterDelete(props.currentUser.id, encounter.id);
             }}
           >
-            Delete
+              Delete
           </button>
-          <br />
+            </>
+            )
+          }
+            <br />
+            </div>
         </React.Fragment>
+    
+        
       ))}
-      <Link to="/user/encounters/new">
-        <button>Create</button>
+      <div className="create">
+        <Link to="/user/encounters/new">
+        <button className="btn">Create</button>
       </Link>
-    </div>
+      </div>
+      </div> 
   );
 }

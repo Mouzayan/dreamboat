@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+
+import './Login.css'
+import Hero from './Hero'
 
 export default class Login extends Component {
   state = {
@@ -18,14 +20,18 @@ export default class Login extends Component {
   render() {
     const { username, email, password } = this.state;
     return (
-      <form onSubmit={(e) => {
+      <Hero>
+      <div className="centered">
+        
+      <form className="formContainer" onSubmit={(e) => {
         e.preventDefault();
         this.props.handleLogin(this.state);
-        this.props.history.push('/');
+        this.props.history.push("/users/:id");
       }}>
-        <h3>Login</h3>
-        <label htmlFor="username">username:</label>
-        <input
+
+        <p className="formTitle">Login</p>
+        <label className="formLabel" htmlFor="username">username</label>
+        <input className="formInput"
           id="username"
           type="text"
           name="username"
@@ -33,8 +39,8 @@ export default class Login extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <label htmlFor="email">email:</label>
-        <input
+        <label className="formLabel" htmlFor="email">email</label>
+        <input className="formInput"
           id="email"
           type="text"
           name="email"
@@ -42,8 +48,8 @@ export default class Login extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <label htmlFor="password">password:</label>
-        <input
+        <label className="formLabel" htmlFor="password">password</label>
+        <input className="formInput"
           id="password"
           type="password"
           name="password"
@@ -51,8 +57,11 @@ export default class Login extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <button>Submit</button>
-      </form>
+        <button className="formSubmit">Submit</button>
+          </form>
+        </div>
+        </Hero>
+        
     )
   }
 }

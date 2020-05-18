@@ -1,0 +1,57 @@
+.encntrCmntDiv {
+  margin-top: 11.5%;
+  margin-left: 3em;
+  margin-right: 3em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.encounterText {
+  font-size: 2em;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 1em;
+}
+
+.commentText {
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 0.8em;
+}
+
+.bullet {
+color: #ffe338;
+font-size: 3em;
+margin-right: 0.2em;
+margin-left: 0.5em;
+}
+
+/* media query for tablet */
+@media only screen and (max-width: 768px) {
+  .encntrCmntDiv {
+    margin-top: 20%;
+  } 
+  
+  .encounterText {
+    margin-bottom: 0em;
+  }
+  
+  .commentText {
+    font-size: 1.5em;
+    margin-bottom: 0em;
+  }
+  
+
+}
+  /* media query for mobile phones */
+@media only screen and (max-width: 375px) {
+  .encntrCmntDiv {
+    margin-top: 35%;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+
+}

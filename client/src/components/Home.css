@@ -1,0 +1,108 @@
+.centered {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 27vw;
+}
+
+.heroDiv {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/mosaic_gradient.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.splashText {
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+z-index: 99;
+overflow: hidden;
+}
+
+.splashText2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  }
+
+.positioning,
+.positioning2 {
+  font-size: 3.5em;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.signUp {
+  border-radius: 15px;
+  border: 1px solid #FFE338;
+  font-size: 1.8em;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFE338;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-left: 1.5em;
+}
+
+/* media query for tablet */
+@media only screen and (max-width: 768px) {
+  .centered {
+    min-width: 100%;
+  }    
+    .positioning {
+      font-size: 2.2em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .positioning2 {
+      font-size: 2.2em;
+      margin-right: 0.25em;
+    }
+
+    .splashText2 {
+      align-items: center;
+      justify-content: center;
+      }
+
+    .signUp {
+      font-size: 1.5em;
+      margin-left: 0.25em;
+    }
+  
+}
+  /* media query for mobile phones */
+@media only screen and (max-width: 375px) {
+  .centered {
+    min-width: 100%;
+  }    
+    .positioning {
+      font-size: 2.2em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .positioning2 {
+      font-size: 2.2em;
+      margin-right: 0.25em;
+    }
+
+    .splashText2 {
+      align-items: center;
+      justify-content: center;
+      }
+
+    .signUp {
+      font-size: 1.5em;
+      margin-left: 0.25em;
+    }
+  
+}

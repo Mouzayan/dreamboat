@@ -1,35 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import Hero from './Hero'
 
-import Header from './Header';
-import ShowUsers from './ShowUsers';
-
+import './Home.css'
 
 export default function Home(props) {
+  const history= useHistory()
   return (
-    <React.Fragment> 
-      <Header currentUser={props.currentUser}
-        handleLogout={props.handleLogout}
-      
-      />
 
-{props.currentUser? (
-        <>
+    <React.Fragment> 
+
+      {props.currentUser ? 
+    history.push("/users/:id")
+        : (
           
-          <ShowUsers
-            {...props} users={props.users}
-              currentUser={props.currentUser}/>
-        </>
-      ) : (
-          <>
-        <p>find your ultimate catch</p>
+          <div className="centered">
+          <div className="splashText">
+              <p className="positioning">find your ultimate</p>
+              <div className="splashText2">
+              <p className="positioning2">catch</p>
+            <Link className="signUp" to="/sign-up">SIGN UP</Link>
+            </div> 
+            </div>
+            </div>
           
-            <Link to="/sign-up">SIGN UP</Link>
-        </>    
-      )}
-    
+          )}
       
-         
     </React.Fragment>  
   );
 }
